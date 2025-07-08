@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0042)http://127.0.0.1:8000/admin/leave-requests -->
+<!-- saved from url=(0033)http://127.0.0.1:8000/admin/users -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -63,13 +63,13 @@
                         <span class="ml-3" x-show="!sidebarMinimized">Rekap Presensi</span>
                     </div>
 </a>
-                <a class="flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-900 rounded-lg transition-colors duration-200" href="http://127.0.0.1:8000/admin/leave-requests">
+                <a class="flex items-center px-4 py-2 text-sm font-semibold text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200" href="http://127.0.0.1:8000/admin/leave-requests">
     <div class="flex items-center" :class="sidebarMinimized ? &#39;justify-center&#39; : &#39;&#39;">
                         <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
                         <span class="ml-3" x-show="!sidebarMinimized">Manajemen Cuti</span>
                     </div>
 </a>
-                <a class="flex items-center px-4 py-2 text-sm font-semibold text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200" href="http://127.0.0.1:8000/admin/users">
+                <a class="flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-900 rounded-lg transition-colors duration-200" href="http://127.0.0.1:8000/admin/users">
     <div class="flex items-center" :class="sidebarMinimized ? &#39;justify-center&#39; : &#39;&#39;">
                         <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197M15 21a6 6 0 006-6v-1a3 3 0 00-3-3H6a3 3 0 00-3 3v1a6 6 0 006 6z"></path></svg>
                         <span class="ml-3" x-show="!sidebarMinimized">Manajemen User</span>
@@ -101,7 +101,7 @@
                         
                         <div class="flex-1 text-center md:text-left md:pl-4">
                                                              <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Manajemen Pengajuan Cuti
+            Manajemen Pengguna
         </h2>
                                                     </div>
                         
@@ -137,198 +137,184 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    
-                    <form method="GET" action="http://127.0.0.1:8000/admin/leave-requests" class="mb-6">
-                        <div class="flex items-center space-x-4">
-                            <div>
-                                <label for="status" class="block text-sm font-medium text-gray-700">Filter berdasarkan Status:</label>
-                                <select name="status" id="status" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                                    <option value="all">Semua</option>
-                                    <option value="pending" selected="">Pending</option>
-                                    <option value="approved">Approved</option>
-                                    <option value="rejected">Rejected</option>
-                                </select>
-                            </div>
-                            <div class="pt-5">
-                                <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md">Filter</button>
-                            </div>
-                        </div>
-                    </form>
-
+                <div class="flex justify-end mb-4">
+                        <a href="http://127.0.0.1:8000/admin/users/create" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
+                            Tambah Pengguna Baru
+                        </a>
+                    </div>
+                                        
                     <div class="overflow-x-auto">
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Karyawan</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal Cuti</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Alasan</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">Dr. Kaleigh Crooks</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">14 Jul 2025 - 18 Jul 2025</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500">Fuga tempore nihil culpa laborum sint mo...</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">Admin</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">admin@gmail.com</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            Approved
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-100 text-indigo-800">
+                                            admin
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                                                    -
-                                                                            </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="http://127.0.0.1:8000/admin/users/1/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <form action="http://127.0.0.1:8000/admin/users/1" method="POST" class="inline-block ml-4">
+                                            <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm(&#39;Apakah Anda yakin ingin menghapus pengguna ini?&#39;)">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">Dr. Kaleigh Crooks</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">17 Jul 2025 - 22 Jul 2025</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500">Voluptatem ipsam quo ex libero sint faci...</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">rio</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">rio@gmail.com</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                            Rejected
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                            user
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                                                    -
-                                                                            </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="http://127.0.0.1:8000/admin/users/2/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <form action="http://127.0.0.1:8000/admin/users/2" method="POST" class="inline-block ml-4">
+                                            <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm(&#39;Apakah Anda yakin ingin menghapus pengguna ini?&#39;)">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">Dr. Kaleigh Crooks</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">05 Aug 2025 - 06 Aug 2025</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500">Beatae deleniti occaecati consectetur au...</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">Hedwig</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">hedwigpublic@punkproof.com</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            Approved
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                            user
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                                                    -
-                                                                            </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="http://127.0.0.1:8000/admin/users/3/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <form action="http://127.0.0.1:8000/admin/users/3" method="POST" class="inline-block ml-4">
+                                            <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm(&#39;Apakah Anda yakin ingin menghapus pengguna ini?&#39;)">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">Michaela Mayert</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">13 Jun 2025 - 17 Jun 2025</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500">Reprehenderit nisi consequatur ut quos a...</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">Assunta Gaylord</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">mschuster@example.net</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            Approved
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                            user
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                                                    -
-                                                                            </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="http://127.0.0.1:8000/admin/users/4/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <form action="http://127.0.0.1:8000/admin/users/4" method="POST" class="inline-block ml-4">
+                                            <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm(&#39;Apakah Anda yakin ingin menghapus pengguna ini?&#39;)">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">Michaela Mayert</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">15 Jul 2025 - 16 Jul 2025</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500">Omnis corporis dolore illum rerum ut exc...</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">Cynthia Mills</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">retta80@example.net</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            Approved
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                            user
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                                                    -
-                                                                            </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="http://127.0.0.1:8000/admin/users/5/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <form action="http://127.0.0.1:8000/admin/users/5" method="POST" class="inline-block ml-4">
+                                            <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm(&#39;Apakah Anda yakin ingin menghapus pengguna ini?&#39;)">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">Michaela Mayert</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">01 Aug 2025 - 03 Aug 2025</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500">Vitae consequuntur vel totam quos esse v...</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">Miss Darlene Goodwin</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">claud.morissette@example.org</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                            Pending
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                            user
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                                                    <div class="flex items-center space-x-2">
-                                                <form action="http://127.0.0.1:8000/admin/leave-requests/26/approve" method="POST">
-                                                    <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                                    <button type="submit" class="text-green-600 hover:text-green-900">Approve</button>
-                                                </form>
-                                                <form action="http://127.0.0.1:8000/admin/leave-requests/26/reject" method="POST">
-                                                    <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                                    <button type="submit" class="text-red-600 hover:text-red-900">Reject</button>
-                                                </form>
-                                            </div>
-                                                                            </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="http://127.0.0.1:8000/admin/users/6/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <form action="http://127.0.0.1:8000/admin/users/6" method="POST" class="inline-block ml-4">
+                                            <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm(&#39;Apakah Anda yakin ingin menghapus pengguna ini?&#39;)">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">Glen Jakubowski</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">08 Jul 2025 - 12 Jul 2025</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500">Sed culpa aut quia illo enim cumque aut...</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">Mrs. Laurence Bartell Sr.</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">nathen.spinka@example.net</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                            Pending
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                            user
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                                                    <div class="flex items-center space-x-2">
-                                                <form action="http://127.0.0.1:8000/admin/leave-requests/23/approve" method="POST">
-                                                    <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                                    <button type="submit" class="text-green-600 hover:text-green-900">Approve</button>
-                                                </form>
-                                                <form action="http://127.0.0.1:8000/admin/leave-requests/23/reject" method="POST">
-                                                    <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                                    <button type="submit" class="text-red-600 hover:text-red-900">Reject</button>
-                                                </form>
-                                            </div>
-                                                                            </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="http://127.0.0.1:8000/admin/users/7/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <form action="http://127.0.0.1:8000/admin/users/7" method="POST" class="inline-block ml-4">
+                                            <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm(&#39;Apakah Anda yakin ingin menghapus pengguna ini?&#39;)">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">Glen Jakubowski</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">19 Jul 2025 - 20 Jul 2025</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500">Voluptate doloremque ducimus neque aut d...</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">Alysha Hudson PhD</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">lyric.stracke@example.com</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                            Rejected
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                            user
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                                                    -
-                                                                            </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="http://127.0.0.1:8000/admin/users/8/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <form action="http://127.0.0.1:8000/admin/users/8" method="POST" class="inline-block ml-4">
+                                            <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm(&#39;Apakah Anda yakin ingin menghapus pengguna ini?&#39;)">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">Glen Jakubowski</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">08 Aug 2025 - 10 Aug 2025</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500">Ullam corporis facere repellat porro sed...</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">Rosalia Hudson</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">cathrine53@example.net</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            Approved
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                            user
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                                                    -
-                                                                            </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="http://127.0.0.1:8000/admin/users/9/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <form action="http://127.0.0.1:8000/admin/users/9" method="POST" class="inline-block ml-4">
+                                            <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm(&#39;Apakah Anda yakin ingin menghapus pengguna ini?&#39;)">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">Betsy Hoppe</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">29 Jun 2025 - 03 Jul 2025</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500">Eum error omnis corrupti consequuntur ma...</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">apaucek@example.org</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                            Pending
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                            user
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                                                    <div class="flex items-center space-x-2">
-                                                <form action="http://127.0.0.1:8000/admin/leave-requests/20/approve" method="POST">
-                                                    <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                                    <button type="submit" class="text-green-600 hover:text-green-900">Approve</button>
-                                                </form>
-                                                <form action="http://127.0.0.1:8000/admin/leave-requests/20/reject" method="POST">
-                                                    <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                                    <button type="submit" class="text-red-600 hover:text-red-900">Reject</button>
-                                                </form>
-                                            </div>
-                                                                            </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="http://127.0.0.1:8000/admin/users/10/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <form action="http://127.0.0.1:8000/admin/users/10" method="POST" class="inline-block ml-4">
+                                            <input type="hidden" name="_token" value="VNTJet840sd6WYkoezELIE47l96TOdvtPEmuQmoY" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm(&#39;Apakah Anda yakin ingin menghapus pengguna ini?&#39;)">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                                             </tbody>
                         </table>
                     </div>
-                     <div class="mt-4">
+                    <div class="mt-4">
                         <nav role="navigation" aria-label="Pagination Navigation" class="flex items-center justify-between">
         <div class="flex justify-between flex-1 sm:hidden">
                             <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md dark:text-gray-600 dark:bg-gray-800 dark:border-gray-600">
                     « Previous
                 </span>
             
-                            <a href="http://127.0.0.1:8000/admin/leave-requests?page=2" class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:focus:border-blue-700 dark:active:bg-gray-700 dark:active:text-gray-300">
+                            <a href="http://127.0.0.1:8000/admin/users?page=2" class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:focus:border-blue-700 dark:active:bg-gray-700 dark:active:text-gray-300">
                     Next »
                 </a>
                     </div>
@@ -341,7 +327,7 @@
                         to
                         <span class="font-medium">10</span>
                                         of
-                    <span class="font-medium">31</span>
+                    <span class="font-medium">13</span>
                     results
                 </p>
             </div>
@@ -364,18 +350,12 @@
                                                                                                                         <span aria-current="page">
                                         <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 dark:bg-gray-800 dark:border-gray-600">1</span>
                                     </span>
-                                                                                                                                <a href="http://127.0.0.1:8000/admin/leave-requests?page=2" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Go to page 2">
+                                                                                                                                <a href="http://127.0.0.1:8000/admin/users?page=2" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Go to page 2">
                                         2
-                                    </a>
-                                                                                                                                <a href="http://127.0.0.1:8000/admin/leave-requests?page=3" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Go to page 3">
-                                        3
-                                    </a>
-                                                                                                                                <a href="http://127.0.0.1:8000/admin/leave-requests?page=4" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Go to page 4">
-                                        4
                                     </a>
                                                                                                         
                     
-                                            <a href="http://127.0.0.1:8000/admin/leave-requests?page=2" rel="next" class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Next &amp;raquo;">
+                                            <a href="http://127.0.0.1:8000/admin/users?page=2" rel="next" class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Next &amp;raquo;">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                             </svg>
